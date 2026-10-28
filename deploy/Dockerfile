@@ -1,7 +1,7 @@
 # Self-built Reader image: upstream backend jar (byte-identical except
 # web assets) + frontend built from this repo's patched source.
 # Build from the repository root:
-#   docker build -f deploy/Dockerfile -t jeff/reader:2.5.4-slim-patched1 .
+#   docker build -f deploy/Dockerfile -t jeff/reader:2.5.4-slim-patched2 .
 FROM node:16-alpine AS web
 WORKDIR /app/web
 COPY web/ ./

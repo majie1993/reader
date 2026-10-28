@@ -94,7 +94,7 @@ module.exports = {
     msTileColor: "#000000",
 
     appleMobileWebAppCapable: "yes",
-    appleMobileWebAppStatusBarStyle: "black-translucent",
+    appleMobileWebAppStatusBarStyle: "default",
 
     manifestOptions: {
       // display: "standalone"

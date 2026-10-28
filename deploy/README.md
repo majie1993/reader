@@ -4,10 +4,15 @@
 dumpmemory/reader 的 master（上游原仓库 master 已被作者清空，旧源码只存于 fork 网络），
 与线上部署的 changshengyu/reader:2.5.4-slim 同属一个代码系。
 
-## 与上游唯一的源码差异
+## 与上游的源码差异（共两处）
 
-`web/src/views/Index.vue` 删除 14 行：`.status-bar-light-bg` 与
+1. `web/src/views/Index.vue` 删除 14 行：`.status-bar-light-bg` 与
 `.status-bar-light-bg-dialog` 两条 CSS 规则。
+2. `web/vue.config.js` 一行：`appleMobileWebAppStatusBarStyle` 由
+`black-translucent` 改为 `default`。black-translucent 让网页内容铺到状态栏
+底下（靠满屏的 safe-area 内边距避让），内容滚到顶部时会钻进 iOS 在状态栏
+区域施加的半透明模糊（scroll edge）效果里、文字发虚；改 default 后状态栏
+是独立的不透明条（白色、黑字），内容不再下钻，该区域也不再有遮罩。
 
 原因：该渐变（顶部 36px、rgba(0,0,0,.2) → 透明）只在 iOS 把页面添加到主屏幕
 （PWA standalone，`window.navigator.standalone` 为 true）时加到书架容器上，
@@ -24,7 +29,7 @@ dumpmemory/reader 的 master（上游原仓库 master 已被作者清空，旧�
 在仓库根目录构建：
 
 ```bash
-docker build -f deploy/Dockerfile -t jeff/reader:2.5.4-slim-patched1 .
+docker build -f deploy/Dockerfile -t jeff/reader:2.5.4-slim-patched2 .
 ```
 
 - 前端构建用 Node 16；仓库没有 lockfile，今日解析出的依赖中有要求
