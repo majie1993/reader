@@ -3654,20 +3654,6 @@ export default {
 .night-theme .el-popover__title {
   color: #ddd !important;
 }
-.status-bar-light-bg {
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2) 0,
-    transparent 36px
-  ) !important;
-}
-.status-bar-light-bg-dialog .el-dialog.is-fullscreen {
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2) 0,
-    transparent 36px
-  ) !important;
-}
 @media (hover: hover) {
   .book:hover {
     background: rgba(0, 0, 0, 0.1);
